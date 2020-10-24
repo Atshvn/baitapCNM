@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Danh Sach Sinh Vien</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ma Sinh Vien</th>
+                    <th>Ten Sinh Vien</th>
+                    <th>Ma lop</th>
+                    <th>Nam Sinh</th>
+                    <th>Avatar</th>
+                    <th>Chuc Nang</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.forEach(data.Items, function(value) { %>
+                <tr>
+                    <td><%= value.id %></td>
+                    <td><%= value.ma_sinhvien %></td>
+                    <td><%= value.ten_sinhvien %></td>
+                    <td><%= value.ma_lop %></td>
+                    <td><%= value.namsinh %></td>
+                    <td><img style=" width: 50px; height: 50px; border-radius: 50%;"  src="https://baitapcnm.s3.amazonaws.com/<%= value.avatar %>" alt="">
+                       </td>
+                    <td><a href="/sinhvien/delete/<%= value.id %>" class="btn btn-danger">Delete</a>
+                        <a href="/sinhvien/update/<%= value.id %>" class="btn btn-info">Update</a></td>
+                </tr>
+                <% }) %>
+
+
+            </tbody>
+        </table>
+        <a href="/sinhvien/add" class="btn btn-success">Them Sinh Vien</a>
+        
+    </div>
+</body>
+
+</html>

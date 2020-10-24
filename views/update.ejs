@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Update</h2>
+        <form class="form-horizontal" method="POST" action="/sinhvien/update">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="id">ID: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id" placeholder="<%= data.Item.id %>" value="<%= data.Item.id %>"  name="id">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="ma_sinhvien">Ma Sinh Vien:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ma_sinhvien" placeholder="<%= data.Item.ma_sinhvien %>" name="ma_sinhvien">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="ten_sinhvien">Ten Sinh Vien:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ten_sinhvien" placeholder="<%= data.Item.ten_sinhvien %>" name="ten_sinhvien">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="ma_lop">Ma Lop:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ma_lop" placeholder="<%= data.Item.ma_lop %>" name="ma_lop">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="namsinh">Nam Sinh:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="namsinh" placeholder="<%= data.Item.namsinh %>" name="namsinh">
+                </div>
+            </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="avatar">Avatar:</label>
+            <button type="button" class="btn upload-btn "> Choose Avatar</button>
+            <input type="file" name="upload" id="upload-input"
+            style="display:none">
+        </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="/js/upload.js"></script>
+</body>
+
+</html>
