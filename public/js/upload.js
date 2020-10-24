@@ -1,3 +1,5 @@
+//xu ly su kien upload hinh
+
 $(document).ready(function(){
     $('.upload-btn').on('click', function(){
         $('#upload-input').click();

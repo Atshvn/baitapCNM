@@ -2,6 +2,7 @@ var AWS = require("aws-sdk");
 var _ = require('lodash');
 var formidable =require('formidable');
 var secret = require('../secret/ASW');
+//cai dat dyamodb
 let awsConfig = {
     "region": "us-east-1",
     "endpoint": "http://dynamodb.us-east-1.amazonaws.com",
@@ -9,7 +10,7 @@ let awsConfig = {
 };
 AWS.config.update(awsConfig);
 let docClient = new AWS.DynamoDB.DocumentClient();
-
+//get toan bo sinh vien
 module.exports.getAllSinhVien = function (req, res) {
     let params = {
         TableName: "SinhVien"
@@ -22,9 +23,12 @@ module.exports.getAllSinhVien = function (req, res) {
         }
     });
 };
+
+// get page them sinh vien
 module.exports.getAddSinhVien = function(req, res){
     res.render('add');
 }
+// get page update sinh vien
 module.exports.getUpdateSinhVien = function(req, res){
     let params = {
         TableName: "SinhVien",
@@ -44,7 +48,7 @@ module.exports.getUpdateSinhVien = function(req, res){
       });
 
 }
-
+// them sinh vien
 module.exports.createSinhVien = function (req, res, next) {
     const { ma_sinhvien, ten_sinhvien, namsinh, ma_lop, upload } = req.body;
     const id = (Math.floor(Math.random() * 1000)).toString();
@@ -72,6 +76,8 @@ module.exports.createSinhVien = function (req, res, next) {
         }
     });
 };
+
+//upload hinh 
 module.exports.Upload = function (req, res) {
     const form = new formidable.IncomingForm();
 
@@ -83,6 +89,8 @@ module.exports.Upload = function (req, res) {
 
     form.parse(req);
 },
+
+//cap nhat thong tin sinh vien
 module.exports.updateSinhVien = function (req, res) {
     const { id, ma_sinhvien, ten_sinhvien, namsinh, ma_lop, upload } = req.body;
     const params = {
@@ -110,7 +118,7 @@ module.exports.updateSinhVien = function (req, res) {
         }
     });
 };
-
+//xoa sinh vien klhoi danh sach
 module.exports.deleteSinhVien = function (req, res) {
     var params = {
         TableName: 'SinhVien',
